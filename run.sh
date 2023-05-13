@@ -1,0 +1,1 @@
+docker kill --signal="SIGHUP" flask_app
