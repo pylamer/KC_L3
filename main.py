@@ -5,17 +5,6 @@ import requests
 
 app = Flask(__name__)
 URL_SEC_NUMBER = 'https://lab.karpov.courses/hardml-api/module-5/get_secret_number'
-
-@app.route('/')
-def response():
-    time.sleep(1)
-    return make_response(jsonify({"response": "gunicorn reply"}), 200)
-
-@app.route('/return_secret_number')
-def return_secret_number():
-    time.sleep(1)
-    return jsonify(secret_number=secret_number)
-
 def get_secret_number(url):
     flag = True
     count = 1
@@ -36,9 +25,20 @@ def get_secret_number(url):
     else:
         return secret_number
 
-if __name__ == '__main__':
-    secret_number = get_secret_number(URL_SEC_NUMBER)
-    print(secret_number)
-    # app.run(host="localhost", port=7501)
-    app.run()
+
+secret_number = get_secret_number(URL_SEC_NUMBER)
+print(secret_number)
+
+@app.route('/')
+def response():
+    time.sleep(1)
+    return make_response(jsonify({"response": "gunicorn reply"}), 200)
+
+@app.route('/return_secret_number')
+def return_secret_number():
+    time.sleep(1)
+    return jsonify(secret_number=secret_number)
+
+
+app.run()
 
