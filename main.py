@@ -1,5 +1,4 @@
-import os
-from flask import Flask, request, jsonify, make_response
+from flask import Flask, jsonify, make_response
 import time
 
 app = Flask(__name__)
@@ -8,5 +7,6 @@ app = Flask(__name__)
 def response():
     time.sleep(1)
     return make_response(jsonify({"response": "OK"}), 200)
+
 
 
