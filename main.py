@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route('/')
 def response():
     time.sleep(1)
-    return make_response(jsonify({"response": "OK"}), 200)
+    return make_response(jsonify({"response": "gunicorn reply"}), 200)
 
 
 
