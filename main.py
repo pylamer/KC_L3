@@ -39,6 +39,6 @@ def return_secret_number():
     time.sleep(1)
     return jsonify(secret_number=secret_number)
 
-
-app.run()
+if __name__ == "__main__"
+    app.run()
 
